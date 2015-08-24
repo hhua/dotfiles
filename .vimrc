@@ -1,6 +1,10 @@
+" install pathogen
+execute pathogen#infect()
 
 " turn syntax highlighting on by default
 syntax on
+
+filetype plugin indent on
 
 " set softtabstop=2
 " set smartindent
@@ -45,7 +49,7 @@ set guifont=Consolas:h14
 " Enable syntax highlighting
 syntax enable
 
-set background=dark
+set background=light
 colorscheme solarized
 
 " Set extra options when running in GUI mode
@@ -56,11 +60,8 @@ colorscheme solarized
 "        set guitablabel=%M\ %t
 "endif
 
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
+" Map :E to Explorer mode
+command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
